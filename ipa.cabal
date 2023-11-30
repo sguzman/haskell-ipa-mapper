@@ -36,6 +36,7 @@ library
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , regex-tdfa
   default-language: Haskell2010
 
 executable ipa-exe
@@ -50,6 +51,7 @@ executable ipa-exe
   build-depends:
       base >=4.7 && <5
     , ipa
+    , regex-tdfa
   default-language: Haskell2010
 
 test-suite ipa-test
@@ -65,4 +67,5 @@ test-suite ipa-test
   build-depends:
       base >=4.7 && <5
     , ipa
+    , regex-tdfa
   default-language: Haskell2010

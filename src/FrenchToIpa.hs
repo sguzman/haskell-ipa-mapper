@@ -4,12 +4,22 @@ module FrenchToIpa
     )
 where
 
+import Text.Regex.TDFA ((=~))
+import Data.Maybe (listToMaybe)
+
 -- Your dictionary of French words and their IPA pronunciations
+fr :: [String]
 frenchToIpa :: [(String, String)]
-frenchToIpa = [
-  ("bonjour", "bɔ̃ʒuʁ"),
-  ("merci", "mɛʁsi")
+m :: String -> String -> Bool
+matchIpa :: String -> [Bool]
+
+fr = [
+  "^et$"
   ]
 
-matchIpa :: String -> Maybe String
-matchIpa word = fmap snd . head $ filter (\(pattern, _) -> word =~ pattern) frenchToIpa
+frenchToIpa = [
+  ("^et$", "e")
+  ]
+
+m p w = w =~ p
+matchIpa word = map (m word) fr
